@@ -1,1 +1,1 @@
-Python versiion : 3.12.0
+Python version : 3.12.0
