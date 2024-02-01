@@ -67,26 +67,12 @@ class LoginSerializer(serializers.Serializer):
         username = attrs.get('username')
         password = attrs.get('password')
 
-        if defender_utils.is_already_locked(request=self.context.get('request'), username=username):
-            raise exceptions.PermissionDenied(detail=gettext_lazy(
-                "Your account is blocked due to too many failed login attempts. Please try again later."),
-                code='account_blocked')
 
         user = authenticate(username=username, password=password)
 
         if not user:
-            """
-            Checking the user is already block or not.And if there is too many
-            attempts the user will be blocked using django defender
-            """
-            defender_utils.add_login_attempt_to_db(self.context.get('request'), login_valid=False, username=username)
-            ip_address = defender_utils.get_ip(self.context.get('request'))
-            defender_utils.record_failed_attempt(ip_address, username)
-
             raise exceptions.AuthenticationFailed(detail=gettext_lazy('Invalid Credentials'))
 
-        if user.is_deleted:
-            raise exceptions.PermissionDenied(detail=gettext_lazy("Invalid Credentials."))
 
         if not user.is_active:
             raise exceptions.PermissionDenied(detail=gettext_lazy("Your account is not activated."), code='account_inactive')

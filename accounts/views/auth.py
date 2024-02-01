@@ -43,8 +43,6 @@ class LoginView(KnoxLoginView):
         serializer = LoginSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
-        defender_utils.reset_failed_attempts(request, 'login')
         token = AuthToken.objects.create(serializer.validated_data['user'])[1]
 
-
-        return Response(token, status=status.HTTP_200_OK)
+        return Response({'token':token}, status=status.HTTP_200_OK)

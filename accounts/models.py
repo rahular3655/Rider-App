@@ -43,12 +43,3 @@ class UserProfile(models.Model):
     gender = models.CharField(max_length=100, choices=GenderChoices.choices, blank=True, null=True)
     profile_image = ThumbnailerImageField(upload_to=random_file_name, blank=True, null=True)
     
-# class Driver(models.Model):
-#     profile = models.OneToOneRel(UserProfile,on_delete=models.CASCADE,related_name="user")
-#     driving_licence = models.CharField(max_length = 30,null = True,blank = True)
-#     image_licence = models.ImageField(upload_to=random_file_name,blank=True,null=True)
-#     is_approved = models.BooleanField(default = False)
-    
-# class Vehicle(models.Model):
-#     driver = models.ForeignKey(Driver,on_dele)
-    

@@ -27,7 +27,7 @@ SECRET_KEY = config('DJANGO_KEY',cast = str)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1',]
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS.extend([
     'accounts',
     'common',
+    'ride',
 ])
 
 MIDDLEWARE = [
