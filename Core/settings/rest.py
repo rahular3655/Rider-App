@@ -30,7 +30,7 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Rider',
+    'TITLE': 'Rider Management',
     'DESCRIPTION': 'Rider API',
     'SERVE_AUTHENTICATION': None,
     'COMPONENT_SPLIT_REQUEST': True

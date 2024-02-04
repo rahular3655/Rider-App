@@ -2,7 +2,7 @@ from django.db import models
 from accounts.models import User
 from geopy.point import Point
 from geopy.distance import great_circle
-from django_lifecycle import hook, LifecycleModelMixin, AFTER_CREATE
+from django_lifecycle import hook, LifecycleModelMixin, AFTER_CREATE,AFTER_UPDATE
 
 
 class StatusChoices(models.TextChoices):

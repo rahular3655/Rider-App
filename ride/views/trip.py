@@ -9,7 +9,7 @@ from drf_spectacular.utils import extend_schema
 class TripDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
-    lookup_field = 'id'  # Use 'id' as the lookup field for detail view
+    lookup_field = 'id' 
 
 @extend_schema(tags=["Trip"], summary="Trip list", request=TripSerializer)
 class TripListView(ListAPIView):
