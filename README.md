@@ -1,4 +1,7 @@
 Python version : 3.12.0
+Django : 5.0.1
+
+
 Project Overview: Real-Time Ride Management System
 
 Our project aims to create a robust ride management system using Django Rest Framework (DRF). Here are the key features we’ll implement:
